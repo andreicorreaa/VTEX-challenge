@@ -1,0 +1,36 @@
+{
+  "name": "catalog-consolidation",
+  "version": "1.0.0",
+  "description": "Consolida produtos de multiplos sellers em um catalogo unico, evitando duplicidade em Product e registrando ofertas em SellerProduct.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "migrate": "tsx migrations/001_seller_product_text.ts",
+    "import": "tsx src/cli.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "biome lint .",
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "check": "biome check .",
+    "verify": "npm run typecheck && npm run check && npm run test"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.3.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^22.7.5",
+    "@vitest/coverage-v8": "^2.1.2",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.2"
+  }
+}
